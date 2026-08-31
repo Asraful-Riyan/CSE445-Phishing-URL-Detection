@@ -1,0 +1,35 @@
+ONLY NLP/LLM CORRECTION MADE
+
+The rest of the project is unchanged.
+
+New sequence for each of the 3 NLP models:
+1. Baseline training/testing
+2. Hyperparameter tuning on validation data
+3. Final tuned test result
+4. Baseline vs tuned comparison
+
+NLP models:
+- TF-IDF + Logistic Regression
+- Word2Vec + Logistic Regression
+- FastText + Logistic Regression
+
+New sequence for each of the 3 contextual/LLM models:
+1. Baseline experiment
+2. Hyperparameter/prompt tuning
+3. Final tuned result
+4. Baseline vs tuned comparison
+
+LLM/contextual models:
+- BERT
+- GPT-family (DistilGPT2)
+- Grok API
+
+New result CSVs:
+- nlp_3_baseline_results.csv
+- nlp_3_tuned_results.csv
+- nlp_baseline_vs_tuned.csv
+- llm_3_baseline_results.csv
+- llm_3_tuned_results.csv
+- llm_baseline_vs_tuned.csv
+
+No ML, stacking/blending, augmentation, XAI, ablation, overfitting, or KDD code was changed.

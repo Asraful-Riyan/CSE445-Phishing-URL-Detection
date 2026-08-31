@@ -1,0 +1,68 @@
+FINAL FACULTY + USER REQUIREMENTS
+
+ML:
+- Five base models: Logistic Regression, SVM, Decision Tree, Random Forest, XGBoost
+- Six primary ML results: five base + Stacking
+- Blending is also implemented and reported as an additional ensemble experiment
+- Hyperparameter optimization for all five base models and Stacking
+- Blending uses already tuned/ranked models
+
+STACKING / BLENDING DESIGN:
+- Rank the five tuned base models using validation balanced accuracy, F1 and phishing recall
+- Best base model -> meta learner
+- 2nd, 3rd, 4th best base models -> base learners
+- Same selected models are used for Stacking and Blending
+
+PREPROCESSING:
+- cleaning
+- numeric conversion
+- missing-value analysis + median imputation
+- duplicate removal
+- conflicting duplicate removal
+- structural-group holdout
+- scaling where appropriate
+- no label leakage
+
+REGULARIZATION / OVERFIT CONTROL:
+- LR: SAGA + L1/L2/Elastic-Net
+- SVM: C/gamma tuning
+- DT: ccp_alpha pruning
+- RF: depth/leaf/feature subsampling/pruning
+- XGB: L1/L2, learning rate, subsampling, early stopping
+- train-test generalization gap table
+
+DATA AUGMENTATION:
+1 RandomOverSampler
+2 SMOTE
+3 ADASYN
+- training data only
+- untouched test set
+- compare best tuned model under each technique
+
+3 NLP MODELS FROM LECTURE:
+1 TF-IDF + Logistic Regression
+2 Word2Vec + Logistic Regression
+3 FastText + Logistic Regression
+
+3 CONTEXTUAL / LLM MODELS FROM LECTURE:
+1 BERT
+2 GPT-family model (DistilGPT2 implementation)
+3 Grok API experiment (requires XAI_API_KEY)
+
+NLP/LLM:
+- hyperparameter tuning
+- accuracy, precision, recall, F1
+- parameter count
+- approximate size
+- training/inference time
+
+BEST MODEL:
+- normalized confusion matrix
+- training/validation loss and accuracy vs epoch for best trainable transformer
+- LIME XAI
+- ablation study
+
+KDD:
+- StablePFN-inspired stability pipeline:
+  bootstrap feature-stability ranking -> stable feature subset -> regularized XGBoost
+- report as KDD-inspired adapted pipeline, not exact StablePFN reproduction
